@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React para Iniciantes</title>
+
+    <!-- Carrega o React, React Dom e Babel -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app">App</div>
+    <!-- Precisa indicar para o Babel que ele deve transpilar o código -->
+    <script type="text/babel">
+        // Cria um componente chamado App
+        // O componente retorna JSX e por isso
+        // o Babel irá transformar o mesmo
+        const App = () => {
+            return <div>Meu App
+            <div><Button /></div>
+            </div>;
+        }
+
+        const Button = () => {
+
+            return <button>Comprar</button>;
+
+        }
+
+        const Produtos = () => {
+            function handleClick(event) {
+                alert('Comprou: ' + event.target.innerText);
+            }
+
+            return (
+                <div>
+                    <button onClick={handleClick}>Camisa</button>
+                    <button onClick={handleClick}>Bermuda</button>
+                </div>
+            );
+        };
+
+        const Compras = () => {
+            // useState é um Hook que define uma variável reativa
+            const [count, setCount] = React.useState(1);
+
+            return (
+                <div>
+                    <button onClick={() => setCount(count + 1)}>Comprar: {count}</button>
+                    <p>Total: {count || 1}</p>
+                    <p>Preço: R$ {count * 250 || 250}</p>
+                </div>
+            );
+        };
+
+
+        // Renderiza o componente App no elemento que tiver id = app
+        ReactDOM.render(<Compras />, document.getElementById('app'));
+    </script>
+</body>
+
+</html>
