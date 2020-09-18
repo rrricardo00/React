@@ -7,7 +7,7 @@ import Exercicios from './Exercicio'
 ReactDOM.render(
   <React.StrictMode>
     <App></App>
-    <Exercicios></Exercicios>
+    {/* <Exercicios></Exercicios> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

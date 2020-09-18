@@ -31,16 +31,19 @@ const mario = {
 
 export default props => {
     const dados = mario;
-    let soma = 0;
+    // let soma = 0;
 
-    function Somar(){
-       for (let index = 0; index < dados.compras.length; index++) {
-            const element = dados.compras[index];
-            const numeros = +element.preco.split('R$ ').join('');
-            soma += numeros;
-        }
-        return soma;
-    }
+    // function Somar(){
+    //    for (let index = 0; index < dados.compras.length; index++) {
+    //         const element = dados.compras[index];
+    //         const numeros = +element.preco.split('R$ ').join('');
+    //         soma += numeros;
+    //     }
+    //     return soma;
+    // }
+
+
+    const total = dados.compras.map(item => Number(item.preco.replace('R$ ', ''))).reduce((a, b) => a + b);
 
     return (
         <div>
@@ -49,8 +52,9 @@ export default props => {
             <div>
                 <p>Idade: {dados.idade}</p>
                 <p>Compras: {dados.compras.map(item => `${item.nome} ${item.preco} `)}</p>
-                <p>Situação cadastral: {dados.ativa === true ? "Ativa" : "Inativa"}</p>
-                <p>Total gastos = {Somar()}</p>
+                <p>Situação cadastral: <span style={{ color: dados.ativa ? 'green' : 'red' }}>{dados.ativa === true ? "Ativa" : "Inativa"}</span></p>
+                <p>Total gastos = {total}</p>
+                {total > 10000 && <p>Você está gastando muito</p>}
             </div>
         </div>
     )
