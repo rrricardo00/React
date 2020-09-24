@@ -1,8 +1,14 @@
 import React from 'react';
 
+// const Titulo = ({cor, texto, children}) => {
+// return <h1 style={{color: cor}}>{texto} {children}</h1>    
+// };
 
+
+const button = {}
 
 export default props => {
+
 
     // const nome = "Ricardo";
     // const ativo = true;
@@ -60,8 +66,10 @@ export default props => {
     //     }
     // }
 
+
     return (
         <React.Fragment>
+
             {/* <a className="ativo" href="https://www.google.com">site</a>
             <label htmlFor="input">Titutlo do input</label>
             <div>
@@ -81,13 +89,17 @@ export default props => {
                 {livros.filter(({ano}) => ano >= 1998 ).map(({ nome, ano }) => <li key={nome}>{nome} - {ano}</li>)}
             </ul> */}
             {/* {produtos.filter(({preco}) => Number(preco.split('R$ ').join('')) > valor).map(({id, nome, preco, cores}) => <div key={id} style={{backgroundColor: cores[Math.floor(Math.random() * cores.length)]}}>{nome} {Number(preco.split('R$ ').join(''))}</div>)} */}
-        
-           
+
+
             {/* <button onClick={(event)=>console.log(event.target.style.background = "red")}>Clique</button> */}
-        
-            {/* <Teste></Teste> */}
-        
-        
+
+
+            {/* <Titulo cor="red" texto="Meu titulo">
+              <p>Teste children vermelho</p>
+            </Titulo>
+            <Titulo cor="green" texto="Meu titulo 1"></Titulo>
+            <Titulo cor="blue" texto="Meu titulo 2"></Titulo> */}
+
         </React.Fragment>
     )
 
