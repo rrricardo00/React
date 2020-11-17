@@ -4,14 +4,22 @@ const App = () => {
 
 
   const [contar, setContar] = React.useState(0);
+  const [dados, setDados] = React.useState(null);
 
-  React.useEffect(() =>{
-    console.log('executou effect')
-  }, []);
 
-  React.useEffect(() =>{
-    document.title = 'Total ' + contar;
-  }, [contar]);
+  React.useEffect(()=>{
+    
+  });
+
+
+  // React.useEffect(() =>{
+  //   console.log('executou effect')
+  // }, []);
+
+  // React.useEffect(() =>{
+  //   document.title = 'Total ' + contar;
+  // }, [contar]);
+
 
   return (
     <div>
