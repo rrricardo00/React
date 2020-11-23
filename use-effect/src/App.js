@@ -2,7 +2,10 @@ import React from 'react'
 import Produto from './Produto';
 
 const App = () => {
-const [ativo, setAtivo] = React.useState(false);
+
+  const [produto, useProduto] = React.useState(null);
+
+// const [ativo, setAtivo] = React.useState(false);
 
   // const [contar, setContar] = React.useState(0);
   // const [dados, setDados] = React.useState(null);
@@ -32,8 +35,12 @@ const [ativo, setAtivo] = React.useState(false);
         <h3>{dados.preco * contar}</h3>
       </div>)}
       <button onClick={() => setContar(contar + 1)}>{contar}</button> */}
-      {ativo && (<Produto></Produto>)}
-      <button onClick={() => setAtivo(!ativo)}>Toggle</button>
+      {/* {ativo && (<Produto></Produto>)}
+      <button onClick={() => setAtivo(!ativo)}>Toggle</button> */}
+      
+      <button>Notebook</button>
+      <button>Smartphone</button>
+
       
     </div>
   )
