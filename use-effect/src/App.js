@@ -3,9 +3,22 @@ import Produto from './Produto';
 
 const App = () => {
 
-  const [produto, useProduto] = React.useState(null);
+  const [produto, setProduto] = React.useState(null);
 
-// const [ativo, setAtivo] = React.useState(false);
+  React.useEffect(() =>{
+    const produtoLocal = window.localStorage.getItem('produto')
+    if(produtoLocal !== null){setProduto(produtoLocal)}
+  }, [])
+
+  React.useEffect(() =>{
+    if(produto !== null) {window.localStorage.setItem('produto', produto)}
+  }, [produto]);
+
+  function handleClick({target}) {
+    setProduto(target.innerText);
+  }
+
+  // const [ativo, setAtivo] = React.useState(false);
 
   // const [contar, setContar] = React.useState(0);
   // const [dados, setDados] = React.useState(null);
@@ -26,10 +39,9 @@ const App = () => {
   //   document.title = 'Total ' + contar;
   // }, [contar]);
 
- 
-
   return (
     <div>
+      <h1>Preferência: {produto}</h1>
       {/* {dados && (<div>
         <h1>{dados.nome}</h1>
         <h3>{dados.preco * contar}</h3>
@@ -37,11 +49,10 @@ const App = () => {
       <button onClick={() => setContar(contar + 1)}>{contar}</button> */}
       {/* {ativo && (<Produto></Produto>)}
       <button onClick={() => setAtivo(!ativo)}>Toggle</button> */}
-      
-      <button>Notebook</button>
-      <button>Smartphone</button>
 
-      
+      <button onClick={handleClick}>Notebook</button>
+      <button onClick={handleClick}>Smartphone</button>
+      <Produto produto={produto}></Produto>
     </div>
   )
 }
