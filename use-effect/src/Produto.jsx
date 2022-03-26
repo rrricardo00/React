@@ -35,8 +35,6 @@ const Produto = ({ produto }) => {
         </div>
     )
 
-
-
 }
 
 export default Produto
